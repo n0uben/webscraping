@@ -40,11 +40,11 @@ public class TestJsoup {
         return listOfUrls;
     }
 
-    public static Boolean downloadImageByUrl(String url) {
+    public static Boolean downloadImageByUrl(String url, String name) {
 
         File file = new File("");
         String separator = FileSystems.getDefault().getSeparator();
-        String path = file.getAbsolutePath() + separator  + "downloads" + separator + "blabla.jpg";
+        String path = file.getAbsolutePath() + separator  + "downloads" + separator + name + ".jpg";
         file = new File(path);
 
         try {

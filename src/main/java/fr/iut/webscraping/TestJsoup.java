@@ -40,7 +40,7 @@ public class TestJsoup {
 
         File file = new File("");
         String separator = FileSystems.getDefault().getSeparator();
-        String path = file.getAbsolutePath() + separator  + "downloads" + separator + name + ".jpg";
+        String path = file.getAbsolutePath() + separator  + "downloads" + separator + name.trim() + ".jpg";
         file = new File(path);
 
         try {

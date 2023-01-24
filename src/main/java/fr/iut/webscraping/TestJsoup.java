@@ -23,9 +23,10 @@ public class TestJsoup {
             ArrayList<Element> images = doc.getElementsByClass(classname);
 
             for (Element image : images) {
-                Attributes attributes = image.attributes();
-                String src = attributes.get("src");
-                String name = attributes.get("alt");
+                String src = image.attr("src").trim();
+                //remplacement des deux points par un tiret dans les alts
+                // car ca fait planter l'écriture des fichiers sur le disque pour une raison inconnue
+                String name = image.attr("alt").replace(":", "-").trim();
                 listOfMovies.add(new Movie(name, src));
             }
 
@@ -40,7 +41,7 @@ public class TestJsoup {
 
         File file = new File("");
         String separator = FileSystems.getDefault().getSeparator();
-        String path = file.getAbsolutePath() + separator  + "downloads" + separator + name.trim() + ".jpg";
+        String path = file.getAbsolutePath() + separator  + "downloads" + separator + name + ".jpg";
         file = new File(path);
 
         try {
